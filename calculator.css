@@ -1,0 +1,75 @@
+body {
+  display: grid;
+  grid-template: 1fr 90vh 1fr / 1fr 65vh 1fr;
+}
+
+#calc {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-rows: 13vh 13vh 13vh 13vh 13vh 13vh;
+  grid-template-areas: "screen screen screen screen"
+                       "aclear adivide amultiply abackspace"
+                       "a7 a8 a9 asubtract"
+                       "a4 a5 a6 aadd"
+                       "a1 a2 a3 aequal"
+                       "aempty a0 aperiod aequal";
+  grid-gap: 1vh;
+  background-color: #bfd2d6;
+  padding: 20px 20px 35px 20px;
+  border-radius: 10px;
+/*  border: 1px solid #d1d1d1; */
+  box-shadow: -2px -15px rgba(0, 0, 0, 0.2) inset;
+}
+
+#screen {
+  font-size: 9vh;
+  font-family: 'Press Start 2P', cursive;
+  grid-area: screen;
+  margin: 3px;
+  background-color: #aab0b5;
+  border-radius: 3px;
+  box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.2) inset;
+  margin: 0;
+  display: flex;
+  align-content: center;
+  justify-content: end;
+  max-height: 10vh;
+}
+
+#screen p {
+  margin: 0;
+}
+
+button {
+  font-size: 25px;
+  line-height: 0.5;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 -8px rgba(0, 0, 0, 0.1) inset;
+}
+
+button:hover {
+  margin-top: -2px;
+  box-shadow: 0 -10px rgba(0,0,0, 0.1) inset;
+}
+
+button:active {
+  padding: 4px 0 -4px 0;
+  box-shadow: 0 4px #bfd2d6 inset, 0 -4px rgba(0,0,0, 0.1) inset;
+}
+
+button:active .buttontext {
+  position:relative;
+  top:4px;
+}
+
+#equal {
+  background-color: #ebdac3;
+}
+
+#clear, #divide, #multiply, #backspace, #subtract, #add {
+  background-color: #ebe8d0;
+}
+
