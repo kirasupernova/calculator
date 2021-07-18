@@ -18,6 +18,7 @@ let operator = null;
 let secondOperand = '';
 
 function evaluate(e) {
+  if (screen.className == 'scrollingtext') screen.classList.remove('scrollingtext');
   let targetClass = e.target.className;
   switch (targetClass) {
     case 'number':
@@ -69,10 +70,11 @@ function equal(e) {
     let longResult = calculate(operator, firstOperand, secondOperand);
     let result = Math.round((longResult + Number.EPSILON) * 100) / 100;
     screen.textContent = `${result}`;
-//    if (result.toString().length > 6) {
-//      screen.classList.add('scrollingtext');
-//    }
+    if (result.toString().length > 6) {
+      screen.classList.add('scrollingtext');
+    }
     clear();
+    firstOperand = result;
   } else {
     screen.textContent = 'ERROR';
     setTimeout(() => {screen.textContent = secondOperand}, 1000);
@@ -118,4 +120,14 @@ function backspace(e) {
 function removeRed () {
     let red = calc.querySelector(`#${operator}`);
     red.classList.remove('selected');
+}
+
+function empty() {
+  let thoughtbubble = document.querySelector('#thoughtbubble');
+  thoughtbubble.textContent = '';
+  let thought = document.createElement('p');
+  thought.textContent = 'That\ntickles!';
+  thoughtbubble.appendChild(thought);
+  thoughtbubble.classList.add('visible');
+  setTimeout(() => {thoughtbubble.classList.remove('visible');}, 3000);
 }
