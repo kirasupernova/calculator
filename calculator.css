@@ -73,3 +73,6 @@ button:active .buttontext {
   background-color: #ebe8d0;
 }
 
+.selected {
+  background-color: red !important;
+}
